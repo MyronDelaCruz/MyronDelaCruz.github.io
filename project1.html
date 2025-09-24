@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project 1 — Unmanned Aerial Fire-Fighting Assistant</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- (Optional) preload hero image for snappier load -->
+  <link rel="preload" as="image" href="images/about/HeroBannerAirplane.jpg" imagesizes="100vw">
+
+  <style>
+    /* ---------- Global tweaks ---------- */
+    html { scroll-behavior: smooth; }
+    body { padding-top: 72px; background:#f8f9fa; } /* match your main site */
+    section { scroll-margin-top: 80px; }
+
+    /* ---------- Navbar (match your main site) ---------- */
+    .navbar.navbar-dark .navbar-nav .nav-link { color:#fff !important; }
+    .navbar.navbar-dark .navbar-nav .nav-link:hover { opacity:.85; }
+
+    /* Hero banner — same look/behavior as index page */
+.hero-banner{
+  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                    url('images/about/HeroBannerAirplane.jpg');
+  background-size: contain;         /* show whole plane, no cropping */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;           /* letterbox color */
+  min-height: 34vh;                 /* adjust to taste */
+  margin-top: -20px;                /* match your index page */
+  padding-top: 20px;                /* match your index page */
+  color:#fff;
+}
+#hero .container { padding: 6vh 0; }  /* gentle vertical spacing for the title */
+
+
+    /* ---------- Page content ---------- */
+    .lead-muted { color: rgba(255,255,255,.7); }
+    .summary-box h6 { letter-spacing:.08em; }
+
+    .img-soft {
+      border-radius: .75rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,.08);
+    }
+
+    .info-card {
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:.75rem;
+      height:100%;
+      padding:1.25rem;
+      box-shadow:0 0 10px rgba(0,0,0,.06);
+    }
+    .info-card h5 { font-weight:700; }
+
+    /* keep rows breathing */
+    .section-pad { padding: 3rem 0; }
+
+/* Make the Summary paragraph larger (and nicely spaced) */
+.summary-box p {
+  font-size: 1.2rem;     /* ≈ 19px; tweak up/down as you like */
+  line-height: 1.65;     /* improves readability */
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation (links go back to anchors on your main page) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <!-- No brand text (as per your preference) -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section id="hero" class="hero-banner d-flex align-items-center text-center">
+    <div class="container-xl">
+      <h1 class="display-5 fw-bold mb-0">Unmanned Aerial Fire-Fighting Assistant</h1>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="section-pad">
+    <div class="container">
+<!-- Page section title (like the template) -->
+<h2 class="fw-bold text-uppercase mb-4">University of British Columbia</h2>
+
+<!-- Row 1: Two photos + Summary (now directly under the page title) -->
+<div class="row g-4 align-items-start">
+  <div class="col-lg-4">
+    <img src="images/projects/1ATetherConnection.jpg"
+         alt="Tether connection prototype — view A"
+         class="img-fluid img-soft">
+  </div>
+  <div class="col-lg-4">
+    <img src="images/projects/1BTetherConnection.jpg"
+         alt="Tether connection prototype — view B"
+         class="img-fluid img-soft">
+  </div>
+  <div class="col-lg-4">
+    <div class="summary-box">
+      <h6 class="text-uppercase text-muted mb-2">Summary</h6>
+      <p>
+        For my capstone project at UBC, my team's objective was to design a robust and autonomous tether
+        connection from drone to tank that can carry heavy payloads and demonstrate electrical connection capability
+        via an LED light.
+        Aerial firerighting is essential for combating the increasing number of wildfires around the world. Autonomous
+        drones can reduce costs and enhance crew safety by operating in larger numbers and at night.
+        <p>
+        The picture on the left shows the black 3D printed hook which supports the paylod. 
+        The round magnetic plug is attached to a linear actuator that extends after the pin locking mechanism engages.
+        </p>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Row 2: What / How / Results (moved directly under the poster) -->
+<div class="row g-4 mt-4">
+  <!-- What -->
+  <div class="col-lg-4">
+    <div class="info-card">
+      <h5 class="mb-3">What?</h5>
+      <ul class="mb-0">
+        <li>Design a robust and autonomous tether connection from drone to tank that can carry heavy payloads and demonstrate electrical connection capability</li>
+        <li>Must support 3000&nbsp;lb, connect at 30° angles, withstand 150&nbsp;°C, and resist dirt and water</li>
+        <li>The 2 main evaluation criteria were consistency and connection speed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- How -->
+  <div class="col-lg-4">
+    <div class="info-card">
+      <h5 class="mb-3">How?</h5>
+      <ul class="mb-0">
+        <li>Designed on SolidWorks</li>
+        <li>The initial prototype was constructed from wood to explore feasibility and identify areas for improvement</li>
+        <li>The mechanical hook latches onto the D-ring and locks in place with a pin. An actuator then extends to connect the magnetic electrical plug, establishing the electrical connection. The entire system is enclosed for protection against heat and dirt</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="col-lg-4">
+    <div class="info-card">
+      <h5 class="mb-3">Results</h5>
+      <ul class="mb-0">
+        <li>FEA included pin shear and actuator frame buckling under 3&nbsp;kN load; redesigned for margin &gt; 2.5 with reduced mass</li>
+        <li>Average connection time of 10&nbsp;seconds with an average consistency of 9.3/10</li>
+        <li>Electrical connection demonstrated via LED light</li>
+        <li>Environmental robustness requirements met</li>
+        <li>The sponsors (Cascade Aerospace) were very happy with the design</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Row 3: Large CAD on the left, two FEA images stacked on the right -->
+<div class="row g-4 mt-4 align-items-start">
+  <!-- Left: larger image -->
+  <div class="col-12 col-lg-8">
+    <img
+      src="images/projects/1FinalCad.jpg"
+      alt="Final CAD assembly of tether connection"
+      class="img-fluid img-soft w-100"
+      loading="lazy" decoding="async">
+  </div>
+
+  <!-- Right: two stacked images -->
+  <div class="col-12 col-lg-4 d-flex flex-column gap-4">
+    <img
+      src="images/projects/1CFiniteElementAnalysis.jpg"
+      alt="FEA — case C"
+      class="img-fluid img-soft w-100"
+      loading="lazy" decoding="async">
+
+    <img
+      src="images/projects/1DFiniteElementAnalysis.jpg"
+      alt="FEA — case D"
+      class="img-fluid img-soft w-100"
+      loading="lazy" decoding="async">
+  </div>
+</div>
+
+
+
+
+
+      <!-- Back link (optional) -->
+      <div class="text-center mt-5">
+        <a href="index.html#projects" class="btn btn-outline-primary">← Back to Projects</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

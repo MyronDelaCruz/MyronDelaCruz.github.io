@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project 2 — Bottle Cap Sorter (NAIT)</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="images/about/HeroBannerAirplane.jpg" imagesizes="100vw">
+
+  <style>
+    html { scroll-behavior:smooth; }
+    body { padding-top:72px; background:#f8f9fa; } /* keep consistent with your other page */
+    section { scroll-margin-top:80px; }
+
+    /* Navbar (same look as your site) */
+    .navbar.navbar-dark .navbar-nav .nav-link { color:#fff !important; }
+    .navbar.navbar-dark .navbar-nav .nav-link:hover { opacity:.85; }
+
+    /* Hero banner — match your main/project1 */
+    .hero-banner{
+      background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+                        url('images/about/HeroBannerAirplane.jpg');
+      background-size: contain;         /* show whole plane */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color:#000;
+      min-height:34vh;
+      margin-top:-20px;                 /* keep same “gap fix” you use */
+      padding-top:20px;
+      color:#fff;
+    }
+    #hero .container{ padding:6vh 0; }
+
+    /* Shared content styles (same as project 1) */
+    .img-soft{ border-radius:.75rem; box-shadow:0 10px 20px rgba(0,0,0,.08); }
+    .info-card{
+      background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:.75rem;
+      padding:1.25rem; height:100%; box-shadow:0 0 10px rgba(0,0,0,.06);
+    }
+    .info-card h5{ font-weight:700; }
+    .summary-box h6{ letter-spacing:.08em; }
+    .summary-box p{ font-size:1.1rem; line-height:1.65; }
+
+    /* Nice video frame */
+    .video-frame{ border-radius:.75rem; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,.08); }
+
+    .section-pad{ padding:3rem 0; }
+
+
+/* Shared frame for images */
+.img-box{
+  border-radius:.75rem;
+  overflow:hidden;
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
+  background:#f8f9fa; /* backdrop for letterboxing */
+}
+
+/* Keep Row 3 images the same height on large screens */
+@media (min-width: 992px){
+  .row3-box{ min-height: 520px; } /* adjust to taste (480–600px works well) */
+}
+
+/* Show the whole image without cropping */
+.object-contain{ object-fit: contain; background:#f1f3f5; }
+
+/* (If you ever want to crop instead, swap to this) */
+/* .object-cover{ object-fit: cover; } */
+
+/* Make the video fill its Bootstrap ratio box */
+.video-frame video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;   /* fills the area; crops if needed */
+  background: #000;    /* no white edges while loading/letterboxing */
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="hero-banner d-flex align-items-center text-center">
+    <div class="container">
+      <h1 class="display-5 fw-bold mb-0">Bottle Cap Sorter</h1>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="section-pad">
+    <div class="container">
+
+      <!-- Page title (like project 1) -->
+      <h2 class="fw-bold text-uppercase mb-4">Northern Alberta Institute of Technology</h2>
+
+      <!-- Row 1: Video + Summary -->
+      <div class="row gy-4 align-items-start">
+        <div class="col-lg-7">
+
+
+<div class="ratio ratio-16x9 video-frame">
+  <video controls playsinline preload="metadata"
+         poster="images/projects/2BottleCapSorter.jpg">
+    <source src="images/projects/BottleCapSorterVid.mp4" type="video/mp4">
+    <!-- optional WebM fallback
+    <source src="images/projects/BottleCapSorterVid.webm" type="video/webm">
+    -->
+    Your browser can’t play this video.
+  </video>
+</div>
+
+
+        </div>
+        <div class="col-lg-5">
+          <div class="summary-box">
+            <h6 class="text-uppercase text-muted mb-2">Summary</h6>
+            <p>
+              At N.A.I.T, I was the team leader for my capstone project. Our sponsor created mosaic art from bottle caps and needed to
+              eliminate the time-sink of manually sorting caps by colour. I designed an
+              automated sorting machine that separates large batches of bottle caps via a vertical converyor belt, 
+              then presents them one-by-one to a colour sensor. A linear actuator opens a trap door corresponding to the detected color,
+              while the main door holding the bottle cap rotates 90° to allow the bottle cap through. The bottle cap then rolls down
+              the slide and through the opened trap door.
+              </p>
+              <p>The concept targets up to 19 colours, prioritizes accuracy over speed, and is designed to be modular,
+              maintainable and low-cost for a single maker’s workflow.
+              </p>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: What / How / Results -->
+      <div class="row g-4 mt-4">
+        <!-- What -->
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="mb-3">What?</h5>
+            <ul class="mb-0">
+              <li>Design a fully automated machine to sort bottle caps by dominant colour</li>
+              <li>Handle batches of ~1,000–3,000 caps with minimal supervision</li>
+              <li>Target up to 20 colour bins with accuracy higher priority than speed</li>
+              <li>Meet build constraints: &lt; 8&nbsp;ft² footprint, &lt; 6&nbsp;ft tall, durable for tens of thousands of cycles</li>
+              <li>Stay within a $500–$1,250 manufacturing budget</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- How -->
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="mb-3">How?</h5>
+            <ul class="mb-0">
+              <li>Designed in Autodesk Inventor with technical drawings</li>
+              <li>Modular sub-assemblies for easy assembly/disassembly and maintenance</li>
+      <li>An optical colour sensor reads the cap's
+          dominant colour while the main gate holds it stationary. Readings are
+          mapped to a target colour bin.</li>
+      <li>A NEMA-17 stepper, driven by an Arduino microcontroller paces the cycle and coordinates the linear-actuated trap doors, where only the
+          selected bin's door opens for each cap.</li>
+      <li>Gate logic: (1) The main door closes to stop a single cap in front of the sensor.
+          (2) After a valid colour is detected, the selected trap door opens via its linear actuator.
+          (3) The main door rotates 90° to release the cap so it rolls down the slide.
+          (4) The trap door closes and the main door returns to the hold position for the next cap.</li>
+              
+            </ul>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="mb-3">Results</h5>
+            <ul class="mb-0">
+              <li>Manufacture-ready concept meeting size, durability and cost constraints</li>
+              <li>Specified a colour sensor (TCS3200) capable of detecting the sponsor’s wide colour range</li>
+              <li>Expected throughput 720–1200 caps/hour with accuracy-first tuning</li>
+              <li>Design package delivered: CAD, BOM, calculations and assembly documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+<!-- Row 3: Feature image (bigger) + side image (smaller) -->
+<div class="row g-4 mt-4 align-items-stretch">
+  <!-- Bigger image (left) -->
+  <div class="col-lg-7">
+    <div class="img-box row3-box">
+      <img src="images/projects/2BottleCapSorter.jpg"
+           alt="Bottle cap sorter overall view"
+           class="w-100 h-100 object-contain">
+    </div>
+  </div>
+
+  <!-- Smaller image (right) -->
+  <div class="col-lg-5">
+    <div class="img-box row3-box">
+      <img src="images/projects/2SlideSideView.jpg"
+           alt="Slide side view"
+           class="w-100 h-100 object-contain">
+    </div>
+  </div>
+</div>
+
+
+<!-- Row 4: Elevator sub-assembly (full width, bigger) -->
+<div class="row g-4 mt-4">
+  <div class="col-12">
+    <div class="img-box">
+      <img src="images/projects/2ElevatorSubAssy.jpg"
+           alt="Elevator sub-assembly"
+           class="w-100 object-contain">
+    </div>
+  </div>
+</div>
+
+
+      <!-- Back link -->
+      <div class="text-center mt-5">
+        <a href="index.html#projects" class="btn btn-outline-primary">← Back to Projects</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
