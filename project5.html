@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FEA of a Saturn V's F-1 Engine (ANSYS Mechanical)</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- (Optional) Preload hero image for snappier load -->
+  <link rel="preload" as="image" href="images/about/HeroBannerAirplane.jpg" imagesizes="100vw" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { padding-top: 72px; background:#f8f9fa; }
+
+    /* Navbar */
+    .navbar.navbar-dark .nav-link { color:#fff !important; }
+    .navbar.navbar-dark .nav-link:hover { opacity:.85; }
+
+    /* Hero banner – matches other project pages */
+    .hero-banner{
+      background-image:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("images/about/HeroBannerAirplane.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color:#fff;
+      min-height: 36vh;
+      margin-top: -20px;   /* keep aligned with your site */
+      padding-top: 20px;
+      display:flex; align-items:center; text-align:center;
+    }
+    #hero .container{ padding: 6vh 0; }
+
+    /* Utilities */
+    .img-soft{ border-radius:.75rem; box-shadow:0 10px 20px rgba(0,0,0,.08); }
+    .figure { margin:0; }
+    .figure-caption{ color:#6c757d; font-size:.95rem; margin-top:.5rem; }
+    .section-pad{ padding:3rem 0; }
+    .info-card{
+      background:#fff; border:1px solid rgba(0,0,0,.08);
+      border-radius:.75rem; padding:1.25rem; box-shadow:0 0 10px rgba(0,0,0,.06);
+      height:100%;
+    }
+    .badge-skill{ background:#e9f2ff; color:#0b5ed7; border:1px solid #cfe2ff; }
+    /* Make big hero image in Row 1 fill space nicely without cropping */
+    .img-contain{ width:100%; height:auto; object-fit:contain; }
+
+/* Project 5 hero image sizing */
+.p5-lead-img{
+  max-width: 520px;          /* adjust down/up to taste */
+  max-height: 520px;         /* prevents overly tall images */
+  width: 100%;
+  height: auto;
+  object-fit: contain;       /* keep the whole image visible */
+}
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Sticky nav (same links as other pages) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="hero-banner">
+    <div class="container">
+      <h1 class="display-5 fw-bold mb-2">FEA of Saturn V's F-1 Engine (ANSYS Mechanical)</h1>
+      <p class="lead mb-0">Project – Structural analysis of deformation, stresses, & gapping</p>
+    </div>
+  </section>
+
+  <main class="section-pad">
+    <div class="container">
+
+      <!-- ROW 1 : Hero image + summary -->
+<h2 class="fw-bold mb-4">Cornell University</h2>
+      <div class="row align-items-start gy-4">
+        <div class="col-lg-5">
+          <figure class="figure">
+            <img src="images/projects/f1engine/f1enginemain.png" alt="Saturn V F-1 engine and ANSYS model"
+                 class="img-fluid img-soft p5-lead-img" alt="F-1 engine">
+            <figcaption class="figure-caption">
+              F1 engine on display at the National Air and Space Museum. Photograph by Mike Peel (www.mikepeel.net)
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-lg-6">
+          <div class="info-card">
+            <h5 class="fw-semibold mb-3">Summary</h5>
+            <p>
+              This project builds finite-element model in ANSYS Mechanical to assess the
+              bolted flange joint that connects the mid and lower sections of the Saturn V’s F-1 engine
+              nozzle. The model captures contact between parts, bolt pretension, a pressure gradient
+              along the nozzle derived from 1-D gas dynamics, regeneration-channel forces that tend to
+              separate the joint, and thermal strain at 700&nbsp;°F. Materials are 300-series stainless
+              steel for the nozzle shells and A-286 steel for bolts and nuts.
+              Project specifications taken from the Cornell University 
+              Course ENGR2000X: A Hands-on Introduction to Engineering Simulations.
+            </p>
+            <p>
+              Objectives: determine bolt margin of safety and quantify joint gapping under realistic
+              combined loading. Results show bolt stresses &asymp; 80&nbsp;ksi (below an A-286 capability
+              of ~160&nbsp;ksi) and a maximum gap of ~0.005&nbsp;in near the regeneration channel. Design
+              responses include increasing bolt preload, adding a washer, or increasing flange radius to
+              reduce local opening. Convergence was achieved for sequential load steps representing
+              pretension, pressure + channel forces, and thermal loading.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 : What / How / Results -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="fw-semibold mb-3">What?</h5>
+            <ul class="mb-0">
+              <li>Modeled the bolted flange joint between mid & lower nozzle nozzle.</li>
+              <li>Accounted for bolt pretension, thermal strain, and a
+                  nozzle-axis pressure gradient (12.17–47.72&nbsp;psi).</li>
+              <li>Targets: bolt margin of safety and joint gap under combined loads.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="fw-semibold mb-3">How?</h5>
+            <ul class="mb-0">
+              <li>Geometry: simplified cone built in ANSYS DesignModeler (mid, lower nozzle, 200 bolts + 200 nuts).</li>
+              <li>Mesh: Hex-dominant; body sizing ~0.075 in (bolts/nuts) and 0.3 in (shells), to generate a mesh element size
+                of 26743 which is within the ANSYS student 32000 node limit.</li>
+              <li>Solution: Newton–Raphson with 3 load steps: (1) bolt pretension @ 50% UTS,
+                  (2) pressure + regeneration forces, (3) 700&nbsp;°F thermal strain.</li>
+              <li>Boundary conditions: periodic symmetry; frictionless support at mid-nozzle top.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="fw-semibold mb-3">Results</h5>
+            <ul class="mb-0">
+              <li>Bolt Von Mises stress &asymp; 80&nbsp;ksi &lt; 160&nbsp;ksi (A-286 capability) &rarr; positive margin of safety.</li>
+              <li>Peak opening gap of ~0.005&nbsp; near the regeneration channel under combined loads.</li>
+              <li>Future improvements to reduce gap: increase pretension, add washers, and increase the flange radius.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 3 : Overview + details -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-4">
+          <figure class="figure">
+            <img src="images/projects/f1engine/nozzleoverview.png" alt="ANSYS model of mid and lower nozzle"
+                 class="img-fluid img-soft img-contain">
+            <figcaption class="figure-caption">
+              Mid and lower nozzle modeled in ANSYS DesignModeler; analysis focuses on the bolted flange ring.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-lg-4">
+          <figure class="figure">
+            <img src="images/projects/f1engine/nutsandbolts.png" alt="Close-up of bolts and nuts in the flange"
+                 class="img-fluid img-soft img-contain">
+            <figcaption class="figure-caption">
+              Close-up of the bolted joint (200 bolts + 200 nuts). Bolt pretension is applied before external loads.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h6 class="fw-semibold mb-3">Material Properties</h6>
+            <div class="table-responsive">
+              <table class="table table-sm align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Component</th><th>Material</th>
+                    <th class="text-end">E (psi)</th><th class="text-end">&nu;</th><th class="text-end">CTE (1/°F)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nozzle shells</td><td>300 Series Stainless Steel</td>
+                    <td class="text-end">2.9e7</td><td class="text-end">0.27</td><td class="text-end">1.0e-5</td>
+                  </tr>
+                  <tr>
+                    <td>Bolt & nut</td><td>A-286 Steel</td>
+                    <td class="text-end">2.9e7</td><td class="text-end">0.31</td><td class="text-end">9.5e-6</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="small text-muted mt-2 mb-0">
+              Loads: nozzle-axis pressure (12.17→47.72&nbsp;psi), two 1000&nbsp;lbf
+              forces from regeneration channels, and 700&nbsp;°F thermal field.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 4+ : Left = stacked images, Right = narrative -->
+ 
+     
+
+
+
+
+
+
+    <!-- Row: Modeling notes + figures -->
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+
+      <!-- LEFT COLUMN: force plot + Load Step 1 + Load Step 2 -->
+      <div class="col-lg-6">
+        <figure class="mb-4">
+          <img src="images/projects/f1engine/forceconvergenceplot.png" class="img-fluid img-soft" alt="Force convergence per load step">
+          <figcaption class="small text-muted mt-2">
+            Force convergence per load step showing nonlinear solution stabilization.
+          </figcaption>
+        </figure>
+
+        <figure class="mb-4">
+          <img src="images/projects/f1engine/loadstep1_boltpretension.png" class="img-fluid img-soft" alt="Load step 1 bolt pretension">
+          <figcaption class="small text-muted mt-2">
+            Load Step 1 — Bolt pretension applied. Global deformation is small; preload establishes clamping.
+          </figcaption>
+        </figure>
+
+        <figure class="mb-4">
+          <img src="images/projects/f1engine/loadstep2_pressureforce.png" class="img-fluid img-soft" alt="Load step 2 pressure + channel forces">
+          <figcaption class="small text-muted mt-2">
+            Load Step 2 — Pressure gradient + regeneration forces. Deformation shown (scaled x10) to illustrate
+            joint separation tendency.
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- RIGHT COLUMN: text box (shorter) + the two remaining images stacked beneath -->
+      <div class="col-lg-6">
+        <!-- Make the notes panel more compact -->
+        <div class="card shadow-sm border-0 mb-4">
+          <div class="card-body py-3">
+            <h5 class="card-title mb-3">Modeling Notes &amp; Interpretation</h5>
+            <ul class="mb-0">
+              <li>Three sequential load steps were applied: (1) bolt pretension to clamp the joint,
+                (2) nozzle pressure gradient + regeneration-channel forces that tend to pry the flange apart,
+                and (3) a 700&nbsp;°F thermal field that drives thermal expansion between nozzle and bolts.</li>
+                <li>Using Saturn V's rocket chamber pressure of 1000 psi and an estimated area ratio along
+                the length of the nozzle, the area-Mach relation was used to find the Mach number 
+                and pressure along the nozzle. </li>
+                <li>The pressure was assumed to vary linearly along the nozzle axis. 
+                The surface-to-surface contacts capture
+                  local separation and load transfer across the flange.</li>
+              <li>The regenearation channels were omitted in the model. The force of the
+                regenerative channel was modeled as two separate forces, each of 1000 lbf. The gas temperature
+                 is 700°F, which
+                causes thermal strain.</li>
+                <li>Bolt stress levels remain below the A-286 Steel allowable stress limit of 160 ksi. Peak gap of ~0.005&nbsp;inches
+                    at the regeneration channel highlights where sealing or fatigue risk could rise.</li>
+              <li>To reduce local gap, options include increasing bolt preload, adding
+                washers to spread bearing stress, or increasing flange radius.</li>
+              <li>A Hex-dominant mesh was used to balance accuracy with the student
+                  node limit.
+                Future mesh refinement could be done with the MultiZone method.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Stack the remaining two Load Step 3 images under the notes -->
+        <figure class="mb-4">
+          <img src="images/projects/f1engine/loadstep3_boltstress.png" class="img-fluid img-soft" alt="Load step 3 bolt stresses">
+          <figcaption class="small text-muted mt-2">
+            Load Step 3 — Von Mises stress in bolts. Peak &asymp; 80 ksi &lt; 160 ksi capability (A-286 steel).
+          </figcaption>
+        </figure>
+
+        <figure class="mb-2">
+          <img src="images/projects/f1engine/loadstep3_gapping.png" class="img-fluid img-soft" alt="Load step 3 joint opening">
+          <figcaption class="small text-muted mt-2">
+            Load Step 3 — Gapping near regeneration channel reaches &asymp; 0.005&nbsp;in under combined loading.
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</section>
+    

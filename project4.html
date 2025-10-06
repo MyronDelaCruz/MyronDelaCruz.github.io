@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFD Simulation of Airfoil E423 (ANSYS Fluent)</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Keep hero image snappy -->
+  <link rel="preload" as="image" href="images/about/HeroBannerAirplane.jpg" imagesizes="100vw" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { padding-top: 72px; background:#f7f8fa; }
+
+    /* Sticky nav (match your site look) */
+    .navbar.navbar-dark .nav-link { color:#fff !important; }
+    .navbar.navbar-dark .nav-link:hover { opacity:.85; }
+
+    /* Hero banner */
+    .hero-banner{
+      background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url('images/about/HeroBannerAirplane.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color:#fff;
+      margin-top:-20px;
+      padding-top:20px;
+    }
+    #hero .container { padding: 8vh 0 6vh; }
+
+    /* Utilities */
+    .img-fit{
+      width:100%;
+      height:auto;
+      border-radius:.75rem;
+      box-shadow:0 10px 20px rgba(0,0,0,.08);
+    }
+    .figure-caption{ font-size:.9rem; color:#6c757d; margin-top:.5rem; }
+    .info-card{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:.75rem;
+      padding:1.25rem 1.25rem;
+      height:100%;
+      box-shadow:0 10px 20px rgba(0,0,0,.06);
+    }
+    .section-pad { padding: 3rem 0; }
+
+    /* Make the first image area breathe less white space */
+    .overview-figure img{ max-width:100%; height:auto; }
+    .overview-figure { margin-bottom:.25rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="hero-banner text-center d-flex align-items-center">
+    <div class="container">
+      <h1 class="display-5 fw-bold mb-2">CFD of Airfoil E423 (ANSYS Fluent)</h1>
+      <p class="lead-muted mb-0">Project — Aerodynamic Performance, Verification & Flow Physics</p>
+    </div>
+  </section>
+
+  <main class="section-pad">
+    <div class="container">
+
+      <!-- Row 1: Title + Large overview image + Summary -->
+      <h2 class="fw-bold mb-4">University of British Columbia</h2>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-7">
+          <figure class="overview-figure">
+            <img src="images/projects/airfoil-e423/e423-section.png"
+                 alt="Pressure contour overview of E423; subsonic case"
+                 class="img-fit" />
+            <figcaption class="figure-caption">
+              Pressure contour overview — illustrative subsonic case (AoA = 4°, M = 0.3).
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="info-card">
+            <h5 class="fw-bold mb-2">Summary</h5>
+            <p>
+              This project analyzes the Eppler E423 airfoil in ANSYS Fluent to quantify lift, drag,
+              and key flow features versus angle of attack (AoA) and Mach number. The E423 is a cambered,
+              low-Reynolds-number airfoil used in small UAVs and RC sailplanes for its high lift and gentle
+              pre-stall behavior.
+            </p>
+            <p>
+              I ran steady density-based simulations with the k–ω SST turbulence model for subsonic and
+              transonic conditions. Subsonic cases (e.g., M = 0.3 at AoA 2°–8°) exhibit a nearly
+              linear increase in lift with AoA, a strong suction region near the leading edge, and a
+              viscous wake that thickens with angle. A transonic case (M = 0.9, AoA ≈ 4°) shows shock-induced
+              pressure jumps and separation onset. A higher-AoA subsonic case (M = 0.3, AoA = 15°) highlights
+              periodic wake shedding, captured by velocity vectors and vorticity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: What / How / Results -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="fw-bold mb-2">What?</h5>
+            <p>
+              Evaluate lift and drag trends of E423 across AoA for subsonic and a transonic point; visualize
+              pressure, velocity, vectors and vorticity to explain the physics behind the Cl and Cd behavior.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="fw-bold mb-2">How?</h5>
+            <p>
+              Density-based steady solver (ANSYS Fluent) with the k–ω SST turbulence model.
+              Mesh and boundary conditions were tuned for stable solutions across
+              AoA = 2°–15° (M = 0.3) and a transonic snapshot (M = 0.9, AoA ≈ 4°).
+              Field plots (pressure/velocity contours, vectors, vorticity) were used
+              to connect flow features to integrated coefficients.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="info-card">
+            <h5 class="fw-bold mb-2">Results</h5>
+            <p>
+              Subsonic Cl increases almost linearly pre-stall; Cd rises with AoA as the wake thickens.
+              The transonic case shows a shock on the suction side and initial separation,
+              while the AoA = 15° case exhibits periodic wake structures.
+              The integrated Cl and Cd trends match the field-plot physics, providing a coherent aerodynamic story.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: AoA = 2° (stack image + analysis beside it) -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-7">
+          <img src="images/projects/airfoil-e423/pcontour_aoa2.png"
+               alt="Pressure contour, AoA 2°, M 0.3"
+               class="img-fit" />
+          <div class="figure-caption">
+            Pressure contour — AoA = 2°, M = 0.3.
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="info-card">
+            <p>
+              At low AoA, suction forms near the leading edge with mild adverse gradient toward the trailing edge.
+              The blue indicates areas of low pressure, and the red indicates high pressure.
+              Attached flow is maintained, giving low drag. This pressure distribution sets up the nearly
+              linear portion of the Cl–AoA curve.
+            </p>
+        </div>
+      </div>
+      </div>
+
+      <div class="row g-4 mt-3">
+        <div class="col-lg-7">
+          <img src="images/projects/airfoil-e423/vcontour_aoa2.png"
+               alt="Velocity contour, AoA 2°, M 0.3"
+               class="img-fit" />
+          <div class="figure-caption">
+            Velocity contour — AoA = 2°, M = 0.3.
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="info-card">
+            <p>
+              The velocity field shows acceleration over the upper surface and a thin wake.
+              The blue indicates low velocity and red indicates high velocity.
+              With increasing AoA, this wake thickens and contributes to a gradual rise in Cd.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4: AoA = 4° subsonic + Transonic M=0.9 -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-7">
+          <img src="images/projects/airfoil-e423/pcontour_aoa4.png"
+               alt="Pressure contour, AoA 4°, M 0.3"
+               class="img-fit" />
+          <div class="figure-caption">
+            Pressure contour — AoA = 4°, M = 0.3.
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="info-card">
+            <p>
+              At AoA = 4° (subsonic), the suction peak intensifies and the adverse pressure gradient region grows.
+              The wake becomes thicker, increasing Cd; Cl continues to rise in a near-linear fashion pre-stall.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-3">
+        <div class="col-lg-7">
+          <img src="images/projects/airfoil-e423/vcontour_m09_4deg.png"
+               alt="Velocity contour, transonic snapshot M 0.9, AoA ≈ 4°"
+               class="img-fit" />
+          <div class="figure-caption">
+            Velocity contour — transonic snapshot (M = 0.9, AoA ≈ 4°).
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="info-card">
+            <p>
+              The transonic case shows a shock on the suction side with sharp pressure/velocity jumps
+              and initial separation. This is consistent with increased losses and a steeper rise in drag.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 5: AoA = 15° vectors & vorticity -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-7">
+          <img src="images/projects/airfoil-e423/vel_vectors_15deg.png"
+               alt="Velocity vectors, AoA 15°, M 0.3"
+               class="img-fit" />
+          <div class="figure-caption">
+            Velocity vectors — AoA = 15°, M = 0.3.
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="info-card">
+            <p>
+              At high AoA, vectors highlight separated flow and roll-up of structures in the near wake.
+              This flow state aligns with higher drag and the onset of unsteady features.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-3">
+        <div class="col-lg-7">
+          <img src="images/projects/airfoil-e423/vorticity_15deg.png"
+               alt="Vorticity, AoA 15°, M 0.3"
+               class="img-fit" />
+          <div class="figure-caption">
+            Vorticity magnitude — AoA = 15°, M = 0.3.
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="info-card">
+            <p>
+              Coherent vortical structures convect downstream, indicating periodic shedding.
+              This explains the unsteady wake behavior and complements the velocity-vector view.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 6: Cl & Cd curves -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-6">
+          <img src="images/projects/airfoil-e423/cl_vs_aoa.png"
+               alt="Cl vs AoA"
+               class="img-fit" />
+          <div class="figure-caption">
+            Cl vs AoA — near-linear growth pre-stall with the expected slope for a cambered low-Re airfoil.
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img src="images/projects/airfoil-e423/cd_vs_aoa.png"
+               alt="Cd vs AoA"
+               class="img-fit" />
+          <div class="figure-caption">
+            Cd vs AoA — drag increases with AoA due to thicker wake and greater viscous losses.
+          </div>
+        </div>
+      </div>
+
+      <!-- Back link -->
+      <div class="text-center mt-5">
+        <a href="index.html#projects" class="btn btn-outline-primary">← Back to Projects</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
