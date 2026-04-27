@@ -97,7 +97,7 @@
                  alt="Pressure contour overview of E423; subsonic case"
                  class="img-fit" />
             <figcaption class="figure-caption">
-              Pressure contour overview — illustrative subsonic case (AoA = 4°, M = 0.3).
+              Pressure contour overview - illustrative subsonic case (AoA = 4°, M = 0.3).
             </figcaption>
           </figure>
         </div>
@@ -106,19 +106,13 @@
           <div class="info-card">
             <h5 class="fw-bold mb-2">Summary</h5>
             <p>
-              This project analyzes the Eppler E423 airfoil in ANSYS Fluent to quantify lift, drag,
-              and key flow features versus angle of attack (AoA) and Mach number. The E423 is a cambered,
-              low-Reynolds-number airfoil used in small UAVs and RC sailplanes for its high lift and gentle
-              pre-stall behavior.
+              This project used ANSYS Fluent to analyze turbulent flow around a 2D Eppler E423 airfoil.
+              The study compared subsonic, transonic, and high angle of attack (AoA) cases to evaluate
+              lift, drag, flow separation, shock-related effects, and wake behaviour.
+              
+              
             </p>
-            <p>
-              I ran steady density-based simulations with the k–ω SST turbulence model for subsonic and
-              transonic conditions. Subsonic cases (e.g., M = 0.3 at AoA 2°–8°) exhibit a nearly
-              linear increase in lift with AoA, a strong suction region near the leading edge, and a
-              viscous wake that thickens with angle. A transonic case (M = 0.9, AoA ≈ 4°) shows shock-induced
-              pressure jumps and separation onset. A higher-AoA subsonic case (M = 0.3, AoA = 15°) highlights
-              periodic wake shedding, captured by velocity vectors and vorticity.
-            </p>
+       
           </div>
         </div>
       </div>
@@ -129,8 +123,8 @@
           <div class="info-card">
             <h5 class="fw-bold mb-2">What?</h5>
             <p>
-              Evaluate lift and drag trends of E423 across AoA for subsonic and a transonic point; visualize
-              pressure, velocity, vectors and vorticity to explain the physics behind the Cl and Cd behavior.
+              Evaluated the aerodynamic behaviour of a 2D E423 airfoil by comparing lift, drag,
+              and flow-field patterns across multiple angles of attack and Mach numbers.
             </p>
           </div>
         </div>
@@ -138,11 +132,9 @@
           <div class="info-card">
             <h5 class="fw-bold mb-2">How?</h5>
             <p>
-              Density-based steady solver (ANSYS Fluent) with the k–ω SST turbulence model.
-              Mesh and boundary conditions were tuned for stable solutions across
-              AoA = 2°–15° (M = 0.3) and a transonic snapshot (M = 0.9, AoA ≈ 4°).
-              Field plots (pressure/velocity contours, vectors, vorticity) were used
-              to connect flow features to integrated coefficients.
+              Built steady and transient CFD cases in ANSYS Fluent using a density-based 
+              solver and the k–ω SST turbulence model. Simulations included Mach 0.3 cases 
+              at 2°, 4°, 8°, and 15° angle of attack, plus a transonic Mach 0.9 case at 4° AoA.
             </p>
           </div>
         </div>
@@ -150,11 +142,11 @@
           <div class="info-card">
             <h5 class="fw-bold mb-2">Results</h5>
             <p>
-              Subsonic Cl increases almost linearly pre-stall; Cd rises with AoA as the wake thickens.
-              The transonic case shows a shock on the suction side and initial separation,
-              while the AoA = 15° case exhibits periodic wake structures.
-              The integrated Cl and Cd trends match the field-plot physics, providing a coherent aerodynamic story.
-            </p>
+              The Mach 0.3 cases showed increasing lift with angle of attack and mostly attached 
+              flow from AoA of 2° to 8°. The Mach 0.9 case showed shock-related pressure and
+              velocity changes, while the 15° case captured separated flow, wake shedding, and
+              unsteady lift and drag behaviour.
+             
           </div>
         </div>
       </div>
@@ -166,16 +158,16 @@
                alt="Pressure contour, AoA 2°, M 0.3"
                class="img-fit" />
           <div class="figure-caption">
-            Pressure contour — AoA = 2°, M = 0.3.
+            Pressure contour - AoA = 2°, M = 0.3.
           </div>
         </div>
         <div class="col-lg-5">
           <div class="info-card">
             <p>
-              At low AoA, suction forms near the leading edge with mild adverse gradient toward the trailing edge.
-              The blue indicates areas of low pressure, and the red indicates high pressure.
-              Attached flow is maintained, giving low drag. This pressure distribution sets up the nearly
-              linear portion of the Cl–AoA curve.
+              At low AoA, the pressure field shows a low pressure (blue) suction region over the upper surface
+              and a higher pressure field (red) below the airfoil. This supports attached, lift-producing flow
+              in the pre-stall regime.
+
             </p>
         </div>
       </div>
@@ -187,39 +179,23 @@
                alt="Velocity contour, AoA 2°, M 0.3"
                class="img-fit" />
           <div class="figure-caption">
-            Velocity contour — AoA = 2°, M = 0.3.
+            Velocity contour - AoA = 2°, M = 0.3.
           </div>
         </div>
         <div class="col-lg-5">
           <div class="info-card">
             <p>
-              The velocity field shows acceleration over the upper surface and a thin wake.
-              The blue indicates low velocity and red indicates high velocity.
-              With increasing AoA, this wake thickens and contributes to a gradual rise in Cd.
+              The velocity contour shows acceleration over the upper surface and a thin wake
+              downstream. The mostly attached flow is consistent with low drag at the lower
+              angle subsonic cases.
+              
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Row 4: AoA = 4° subsonic + Transonic M=0.9 -->
-      <div class="row g-4 mt-4">
-        <div class="col-lg-7">
-          <img src="images/projects/airfoil-e423/pcontour_aoa4.png"
-               alt="Pressure contour, AoA 4°, M 0.3"
-               class="img-fit" />
-          <div class="figure-caption">
-            Pressure contour — AoA = 4°, M = 0.3.
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <div class="info-card">
-            <p>
-              At AoA = 4° (subsonic), the suction peak intensifies and the adverse pressure gradient region grows.
-              The wake becomes thicker, increasing Cd; Cl continues to rise in a near-linear fashion pre-stall.
-            </p>
-          </div>
-        </div>
-      </div>
+      <!-- Row 4: AoA = 4° Transonic M=0.9 -->
+
 
       <div class="row g-4 mt-3">
         <div class="col-lg-7">
@@ -233,8 +209,9 @@
         <div class="col-lg-5">
           <div class="info-card">
             <p>
-              The transonic case shows a shock on the suction side with sharp pressure/velocity jumps
-              and initial separation. This is consistent with increased losses and a steeper rise in drag.
+              The transonic case shows strong acceleration over the upper surface
+              followed by a sharp velocity change and wake growth. This indicates
+              compressibility effects, shock-related behaviour, and increased drag.
             </p>
           </div>
         </div>
@@ -247,14 +224,15 @@
                alt="Velocity vectors, AoA 15°, M 0.3"
                class="img-fit" />
           <div class="figure-caption">
-            Velocity vectors — AoA = 15°, M = 0.3.
+            Velocity vectors - AoA = 15°, M = 0.3.
           </div>
         </div>
         <div class="col-lg-5">
           <div class="info-card">
             <p>
-              At high AoA, vectors highlight separated flow and roll-up of structures in the near wake.
-              This flow state aligns with higher drag and the onset of unsteady features.
+          At high angle of attack, the velocity vectors show separated flow over the upper surface
+          and swirling flow behind the airfoil.
+          This helps explain the unsteady lift and drag behaviour.
             </p>
           </div>
         </div>
@@ -266,14 +244,15 @@
                alt="Vorticity, AoA 15°, M 0.3"
                class="img-fit" />
           <div class="figure-caption">
-            Vorticity magnitude — AoA = 15°, M = 0.3.
+            Vorticity magnitude - AoA = 15°, M = 0.3.
           </div>
         </div>
         <div class="col-lg-5">
           <div class="info-card">
             <p>
-              Coherent vortical structures convect downstream, indicating periodic shedding.
-              This explains the unsteady wake behavior and complements the velocity-vector view.
+              The vorticity plot shows repeating wake structures convecting downstream from
+              the airfoil. These structures are consistent with vortex shedding and the 
+              oscillating force coefficients observed in the transient case.
             </p>
           </div>
         </div>
@@ -286,7 +265,7 @@
                alt="Cl vs AoA"
                class="img-fit" />
           <div class="figure-caption">
-            Cl vs AoA — near-linear growth pre-stall with the expected slope for a cambered low-Re airfoil.
+            Cl vs AoA - Mach 0.3 steady cases at 2°, 4°, and 8° cases showing a nearly linear increase.
           </div>
         </div>
         <div class="col-lg-6">
@@ -294,7 +273,7 @@
                alt="Cd vs AoA"
                class="img-fit" />
           <div class="figure-caption">
-            Cd vs AoA — drag increases with AoA due to thicker wake and greater viscous losses.
+            Cd vs AoA - Mach 0.3 steady cases at 2°, 4°, and 8° cases in the pre-stall regime.
           </div>
         </div>
       </div>

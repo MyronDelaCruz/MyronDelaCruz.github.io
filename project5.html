@@ -112,23 +112,16 @@
           <div class="info-card">
             <h5 class="fw-semibold mb-3">Summary</h5>
             <p>
-              This project builds finite-element model in ANSYS Mechanical to assess the
-              bolted flange joint that connects the mid and lower sections of the Saturn V’s F-1 engine
-              nozzle. The model captures contact between parts, bolt pretension, a pressure gradient
-              along the nozzle derived from 1-D gas dynamics, regeneration-channel forces that tend to
-              separate the joint, and thermal strain at 700&nbsp;°F. Materials are 300-series stainless
-              steel for the nozzle shells and A-286 steel for bolts and nuts.
-              Project specifications taken from the Cornell University 
-              Course ENGR2000X: A Hands-on Introduction to Engineering Simulations.
+              This project used ANSYS Mechanical to model the bolted flange joint 
+              between the mid and lower sections of the Saturn V F-1 engine nozzle. 
+              The nonlinear FEA model included contact between parts, bolt pretension, 
+              an internal pressure gradient, regeneration-channel forces, and 
+              thermal strain at 700&nbsp;°F. The goal was to assess bolt stress and 
+              joint opening under combined loading. Project specifications were taken 
+              from the Cornell University Course ENGR2000X: A Hands-on Introduction to Engineering Simulations.
+              
             </p>
-            <p>
-              Objectives: determine bolt margin of safety and quantify joint gapping under realistic
-              combined loading. Results show bolt stresses &asymp; 80&nbsp;ksi (below an A-286 capability
-              of ~160&nbsp;ksi) and a maximum gap of ~0.005&nbsp;in near the regeneration channel. Design
-              responses include increasing bolt preload, adding a washer, or increasing flange radius to
-              reduce local opening. Convergence was achieved for sequential load steps representing
-              pretension, pressure + channel forces, and thermal loading.
-            </p>
+
           </div>
         </div>
       </div>
@@ -139,10 +132,10 @@
           <div class="info-card">
             <h5 class="fw-semibold mb-3">What?</h5>
             <ul class="mb-0">
-              <li>Modeled the bolted flange joint between mid & lower nozzle nozzle.</li>
-              <li>Accounted for bolt pretension, thermal strain, and a
-                  nozzle-axis pressure gradient (12.17–47.72&nbsp;psi).</li>
-              <li>Targets: bolt margin of safety and joint gap under combined loads.</li>
+              <li>Modeled a bolted rocket-nozzle flange joint to evaluate bolt margin of safety
+                and flange gapping under realistic combined loads.</li>
+
+  
             </ul>
           </div>
         </div>
@@ -150,12 +143,13 @@
           <div class="info-card">
             <h5 class="fw-semibold mb-3">How?</h5>
             <ul class="mb-0">
-              <li>Geometry: simplified cone built in ANSYS DesignModeler (mid, lower nozzle, 200 bolts + 200 nuts).</li>
-              <li>Mesh: Hex-dominant; body sizing ~0.075 in (bolts/nuts) and 0.3 in (shells), to generate a mesh element size
-                of 26743 which is within the ANSYS student 32000 node limit.</li>
-              <li>Solution: Newton–Raphson with 3 load steps: (1) bolt pretension @ 50% UTS,
-                  (2) pressure + regeneration forces, (3) 700&nbsp;°F thermal strain.</li>
-              <li>Boundary conditions: periodic symmetry; frictionless support at mid-nozzle top.</li>
+              <li>Build a simplified sector model in ANSYS Mechanical 
+                with contact pairs, bolt pretension, pressure loading 
+                from 12.17 to 47.72 psi, two 1000 lbf regeneration-channel forces, 
+                and a 700&nbsp;°F thermal load.</li>
+           
+
+              
             </ul>
           </div>
         </div>
@@ -163,9 +157,14 @@
           <div class="info-card">
             <h5 class="fw-semibold mb-3">Results</h5>
             <ul class="mb-0">
-              <li>Bolt Von Mises stress &asymp; 80&nbsp;ksi &lt; 160&nbsp;ksi (A-286 capability) &rarr; positive margin of safety.</li>
-              <li>Peak opening gap of ~0.005&nbsp; near the regeneration channel under combined loads.</li>
-              <li>Future improvements to reduce gap: increase pretension, add washers, and increase the flange radius.</li>
+              <li>The model predicted bolt Von Mises stress of about 
+                80 ksi and a peak flange opening of about 0.005 in near the 
+                regeneration channel. Potential design improvements included 
+                increasing bolt pretension, adding washers, or increasing the 
+                flange radius to reduce local opening.
+              </li>
+
+
             </ul>
           </div>
         </div>
